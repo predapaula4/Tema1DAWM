@@ -5,20 +5,23 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.temadawm.adapter.Adapter;
+import com.example.temadawm.model.AfricaModel;
+import com.example.temadawm.model.AmericaModel;
+import com.example.temadawm.model.AsiaModel;
+import com.example.temadawm.model.AustraliaModel;
+import com.example.temadawm.model.EuropeModel;
+import com.example.temadawm.model.continent;
+import com.example.temadawm.model.Animal;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.temadawm.R;
-import com.example.temadawm.model.AfricaModel;
-import com.example.temadawm.model.AmericaModel;
-import com.example.temadawm.model.Animal;
-import com.example.temadawm.model.AsiaModel;
-import com.example.temadawm.model.AustraliaModel;
-import com.example.temadawm.model.EuropeModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +40,12 @@ public class AnimalPage extends Fragment {
     }
 
 
-
-    public void OnViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState){
+    @Override
+    public void onViewCreated(@NonNull View view, @NonNull Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView recyclerView = view.findViewById(R.id.Table);
+
         List<Animal> listOfAnimals = new ArrayList<>();
         listOfAnimals.add(new AfricaModel("Leu african","Africa"));
         listOfAnimals.add(new AfricaModel("Elefant african","Africa"));
@@ -96,6 +100,10 @@ public class AnimalPage extends Fragment {
         listOfAnimals.add(new EuropeModel("Vidra", "Europa"));
         listOfAnimals.add(new EuropeModel("Patrav de munte", "Europa"));
 
+        Adapter adapter = new Adapter(listOfAnimals);
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
     }
 
 

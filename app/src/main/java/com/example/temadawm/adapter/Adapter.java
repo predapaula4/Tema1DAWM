@@ -33,7 +33,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemViewType(int position)
     {
-        return listOfAnimals.get(position).getContinent().key;
+        return listOfAnimals.get(position).getContinent().getKey();
     }
 
 
@@ -41,27 +41,27 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (viewType == continent.EUROPA.key)
+        if (viewType == continent.EUROPA.getKey())
         {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_animal_eu, parent, false);
             EuropaHoledr viewHolder = new EuropaHoledr(view);
             return viewHolder;
-        }else if (viewType == continent.ASIA.key)
+        }else if (viewType == continent.ASIA.getKey())
         {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_animal_asia, parent, false);
             AsiaHolder viewHolder = new AsiaHolder(view);
             return viewHolder;
-        }else if (viewType == continent.AFRICA.key)
+        }else if (viewType == continent.AFRICA.getKey())
         {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_animal_africa, parent, false);
             AfricaHolder viewHolder = new AfricaHolder(view);
             return viewHolder;
-        }else if (viewType == continent.AUSTRALIA.key)
+        }else if (viewType == continent.AUSTRALIA.getKey())
         {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_animal_australia, parent, false);
             AustraliaHolder viewHolder = new AustraliaHolder(view);
             return viewHolder;
-        }else if (viewType == continent.AMERICA.key)
+        }else if (viewType == continent.AMERICA.getKey())
         {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_animal_america, parent, false);
             AmericaHolder viewHolder = new AmericaHolder(view);
