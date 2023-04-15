@@ -6,4 +6,8 @@ public class Animal {
     {
      this.Continent=key;
     }
+    public continent getContinent(){
+        return Continent;
+    }
+
 }
