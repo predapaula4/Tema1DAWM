@@ -44,7 +44,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (viewType == continent.EUROPA.getKey())
         {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_animal_eu, parent, false);
-            EuropaHoledr viewHolder = new EuropaHoledr(view);
+            EuropaHolder viewHolder = new EuropaHolder(view);
             return viewHolder;
         }else if (viewType == continent.ASIA.getKey())
         {
@@ -77,10 +77,10 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return listOfAnimals.size();
     }
 
-    class EuropaHoledr extends RecyclerView.ViewHolder{
+    class EuropaHolder extends RecyclerView.ViewHolder{
         TextView text;
 
-        public  EuropaHoledr(@NotNull View itemView)
+        public  EuropaHolder(@NotNull View itemView)
         {
             super(itemView);
             text = itemView.findViewById(R.id.numeAnimalEu);
@@ -154,9 +154,9 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder, int position)
     {
-        if(holder instanceof EuropaHoledr){
+        if(holder instanceof EuropaHolder){
             EuropeModel europaModel = (EuropeModel) listOfAnimals.get(position);
-            ((EuropaHoledr)holder).bind(europaModel);
+            ((EuropaHolder)holder).bind(europaModel);
         }else if(holder instanceof AfricaHolder)
         {
             AfricaModel model = (AfricaModel) listOfAnimals.get(position);
