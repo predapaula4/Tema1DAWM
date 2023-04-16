@@ -47,6 +47,8 @@ public class AnimalPage extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.Table);
 
         List<Animal> listOfAnimals = new ArrayList<>();
+
+
         listOfAnimals.add(new AfricaModel("Leu african","Africa"));
         listOfAnimals.add(new AfricaModel("Elefant african","Africa"));
         listOfAnimals.add(new AfricaModel("Hipopotam","Africa"));
@@ -101,9 +103,10 @@ public class AnimalPage extends Fragment {
         listOfAnimals.add(new EuropeModel("Patrav de munte", "Europa"));
 
         Adapter adapter = new Adapter(listOfAnimals);
-        recyclerView.setAdapter(adapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
 
